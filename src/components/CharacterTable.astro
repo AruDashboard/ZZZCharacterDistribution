@@ -25,15 +25,15 @@ const url = (path: string) => imageUrl(path, import.meta.env.BASE_URL);
         document.documentElement.classList.add('dark');
       }
     </script>
-    <meta name="description" content="按属性与命途类型查看星穹铁道角色分布" />
-    <title>崩坏：星穹铁道角色分布</title>
+    <meta name="description" content="按属性与命途类型查看绝区零角色分布" />
+    <title>绝区零角色分布</title>
     <meta name="google-site-verification" content="tXyJhIUjwgDkdY4scPFF1nBiVW9co3-HjowXazdoL7I" />
     <meta name="msvalidate.01" content="900BFBEC9CA24BE1B56B696EF1CE3B2E" />
   </head>
   <body>
     <header id="banner" class="bar">
       <span class="text-base font-semibold tracking-tight">
-        崩坏：星穹铁道角色分布 （截止至{characters.version}）
+        绝区零角色分布 （截止至{characters.version}）
       </span>
       <button id="theme-toggle" type="button" aria-pressed="true">
         <span class="light-icon" aria-hidden="true">
@@ -44,7 +44,7 @@ const url = (path: string) => imageUrl(path, import.meta.env.BASE_URL);
         </span>
       </button>
       <a
-        href="https://github.com/AruDashboard/StarrailCharacterDistribution/issues"
+        href="https://github.com/AruDashboard/ZZZCharacterDistribution/issues"
         target="_blank"
         rel="noopener noreferrer"
         class="text-slate-500 hover:text-sky-600 dark:text-slate-400 dark:hover:text-sky-400"
@@ -57,7 +57,7 @@ const url = (path: string) => imageUrl(path, import.meta.env.BASE_URL);
         <thead>
           <tr>
             <th scope="col">
-              <span>属性 \ 命途</span>
+              <span>属性 \ 特性</span>
             </th>
             {characters.cols.map((col) => (
               <th scope="col">
@@ -77,14 +77,16 @@ const url = (path: string) => imageUrl(path, import.meta.env.BASE_URL);
           {rows.map((row) => (
             <tr>
               <th scope="row">
-                <div class="flex items-center justify-center gap-4">
-                  <img
-                    src={url('/images/elements/' + row.image)}
-                    alt={row.key}
-                    class="object-contain"
-                  />
-                  <span class="whitespace-nowrap">{row.key}</span>
-                </div>
+                {row.elements.map((element) => (
+                  <div class="flex items-center justify-center gap-4">
+                    <img
+                      src={url('/images/elements/' + element.image)}
+                      alt={element.key}
+                      class="object-contain"
+                    />
+                    <span class="whitespace-nowrap">{element.key}</span>
+                  </div>
+                ))}
               </th>
               {row.cells.map((cell) => (
                 <td>
@@ -117,7 +119,7 @@ const url = (path: string) => imageUrl(path, import.meta.env.BASE_URL);
           class="w-4 h-4 border border-default-medium rounded-xs bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft"
         />
         <label for="show-rank-4" class="select-none ms-2 text-base font-medium text-heading">
-          显示四星
+          显示A级
         </label>
       </div>
       <div class="flex items-center">
@@ -129,7 +131,7 @@ const url = (path: string) => imageUrl(path, import.meta.env.BASE_URL);
           class="w-4 h-4 border border-default-medium rounded-xs bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft"
         />
         <label for="show-rank-5" class="select-none ms-2 text-base font-medium text-heading">
-          显示五星
+          显示S级
         </label>
       </div>
     </footer>

@@ -1,6 +1,6 @@
-# 崩坏：星穹铁道角色分布
+# 绝区零角色分布
 
-崩坏：星穹铁道角色按元素、命途的分布情况。
+绝区零角色按元素、命途的分布情况。
 
 ## 本地开发
 
@@ -20,7 +20,7 @@ npm run predev
 编辑 `src/data/characters.ts`，格式如下：
 
 ```js
-{ name: '黄泉', element: '雷', path: '虚无', rank: 5, image: '黄泉.avif' }
+{ name: '雅', element: '烈霜', specialty: '异常', rank: 5, image: '雅.avif' }
 ```
 
 图像放到 `public/images/characters/`，必须使用`.avif`格式。
